@@ -15,7 +15,10 @@
 #import "M2Overlay.h"
 #import "M2GridView.h"
 
+#import <Skillz/Skillz.h>
+
 @implementation M2ViewController {
+  IBOutlet UIButton *_multiplayerButton;
   IBOutlet UIButton *_restartButton;
   IBOutlet UIButton *_settingsButton;
   IBOutlet UILabel *_targetScore;
@@ -36,6 +39,9 @@
   [self updateState];
   
   _bestView.score.text = [NSString stringWithFormat:@"%ld", (long)[Settings integerForKey:@"Best Score"]];
+    
+  _multiplayerButton.layer.cornerRadius = [GSTATE cornerRadius];
+  _multiplayerButton.layer.masksToBounds = YES;
   
   _restartButton.layer.cornerRadius = [GSTATE cornerRadius];
   _restartButton.layer.masksToBounds = YES;
@@ -45,21 +51,54 @@
   
   _overlay.hidden = YES;
   _overlayBackground.hidden = YES;
+    
+    SKView * skView = (SKView *)self.view;
+    
+    // Create and configure the scene.
+    M2Scene * scene = [M2Scene sceneWithSize:skView.bounds.size];
+    scene.scaleMode = SKSceneScaleModeAspectFill;
+    
+    // Present the scene.
+    [skView presentScene:scene];
+    [self updateScore:0];
+    [scene startNewGame];
+    
+    _scene = scene;
+    _scene.controller = self;
   
-  // Configure the view.
-  SKView * skView = (SKView *)self.view;
-  
-  // Create and configure the scene.
-  M2Scene * scene = [M2Scene sceneWithSize:skView.bounds.size];
-  scene.scaleMode = SKSceneScaleModeAspectFill;
-  
-  // Present the scene.
-  [skView presentScene:scene];
-  [self updateScore:0];
-  [scene startNewGame];
-  
-  _scene = scene;
-  _scene.controller = self;
+ }
+
+- (void)tournamentWillBegin:(NSDictionary *)gameParameters
+              withMatchInfo:(SKZMatchInfo *)matchInfo
+{
+    // This code is called when a player starts a game in the Skillz portal.
+    NSLog(@"Game Parameters: %@", gameParameters);
+    NSLog(@"Now starting a game… matchInfo: %@", matchInfo);
+    
+    // INCLUDE CODE HERE TO START YOUR GAME
+    // Configure the view.
+    SKView * skView = (SKView *)self.view;
+    
+    // Create and configure the scene.
+    M2Scene * scene = [M2Scene sceneWithSize:skView.bounds.size];
+    scene.scaleMode = SKSceneScaleModeAspectFill;
+    
+    // Present the scene.
+    [skView presentScene:scene];
+    [self updateScore:0];
+    [scene startNewGame];
+    
+    _scene = scene;
+    _scene.controller = self;
+
+    // END OF CODE TO START GAME
+}
+
+- (void)skillzWillExit
+{
+    // This code is called when exiting the Skillz portal
+    //back to the normal game.
+    NSLog(@"Skillz exited.");
 }
 
 
@@ -70,6 +109,9 @@
   
   _restartButton.backgroundColor = [GSTATE buttonColor];
   _restartButton.titleLabel.font = [UIFont fontWithName:[GSTATE boldFontName] size:14];
+    
+  _multiplayerButton.backgroundColor = [GSTATE buttonColor];
+  _multiplayerButton.titleLabel.font = [UIFont fontWithName:[GSTATE boldFontName] size:14];
   
   _settingsButton.backgroundColor = [GSTATE buttonColor];
   _settingsButton.titleLabel.font = [UIFont fontWithName:[GSTATE boldFontName] size:14];
@@ -119,6 +161,14 @@
 }
 
 
+- (IBAction)multiplayerButtonPressed:(id)sender
+{
+  [[Skillz skillzInstance] launchSkillz];
+  [_multiplayerButton removeFromSuperview];
+  [_restartButton removeFromSuperview];
+  [_settingsButton removeFromSuperview];
+}
+
 - (IBAction)restart:(id)sender
 {
   [self hideOverlay];
@@ -160,6 +210,17 @@
     _overlay.message.text = @"You Win!";
   }
   
+    
+    if ([[Skillz skillzInstance] tournamentIsInProgress]) {
+        // The game ended and it was in a Skillz tournament,
+        // so report the score and go back to Skillz.
+        [[Skillz skillzInstance] displayTournamentResultsWithScore:_scoreView.score.text
+                                                    withCompletion:^{
+                                                        // Code in this block is called when exiting to Skillz
+                                                        // and reporting the score.
+                                                        NSLog(@"Reporting score to Skillz…");
+                                                    }];
+    }
   // Fake the overlay background as a mask on the board.
   _overlayBackground.image = [M2GridView gridImageWithOverlay];
   

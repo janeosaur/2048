@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface M2ViewController : UIViewController
+#import <Skillz/Skillz.h>
+
+@interface M2ViewController : UIViewController <SkillzBaseDelegate>
 
 - (void)updateScore:(NSInteger)score;
 

@@ -12,6 +12,8 @@
 #import "M2Scene.h"
 #import "M2ViewController.h"
 
+#import <Skillz/Skillz.h>
+
 /**
  * Helper function that checks the termination condition of either counting up or down.
  *
@@ -217,6 +219,10 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
   _score += _pendingScore;
   _pendingScore = 0;
   [_grid.scene.controller updateScore:_score];
+  if ([[Skillz skillzInstance] tournamentIsInProgress]) {
+    // update the current score
+    [[Skillz skillzInstance] updatePlayersCurrentScore:@(_score)];
+  }
 }
 
 

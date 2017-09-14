@@ -7,11 +7,17 @@
 //
 
 #import "M2AppDelegate.h"
+#import "M2ViewController.h"
+#import <Skillz/Skillz.h>
 
 @implementation M2AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [[Skillz skillzInstance] initWithGameId:@"4003"
+                              forDelegate:(M2ViewController *)self.window.rootViewController
+                          withEnvironment:SkillzSandbox
+                                allowExit: YES];
   return YES;
 }
 
@@ -40,6 +46,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    //If your app uses portrait:
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end
