@@ -21,9 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7bR-CK-ht0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSi-g6-ogB" customClass="M2ScoreView">
                                 <rect key="frame" x="230" y="44" width="74" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,94 +83,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8r1-lH-tEE">
-                                <rect key="frame" x="149" y="103" width="74" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3O8-j6-MXe">
+                                <rect key="frame" x="223" y="113" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <state key="normal" title="Abort"/>
                                 <connections>
-                                    <segue destination="pW0-EP-ySa" kind="modal" identifier="Settings Segue" id="GHf-K9-Vj5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlp-9p-Egv">
-                                <rect key="frame" x="184" y="130" width="76" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="Multiplayer"/>
-                                <connections>
-                                    <action selector="multiplayerButtonPressed:" destination="LVB-YS-i5n" eventType="touchUpInside" id="AmA-w5-zdV"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4yN-A6-bWQ" customClass="M2Overlay">
-                                <rect key="frame" x="60" y="237" width="200" height="174"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You Won!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pqq-SU-fYe">
-                                        <rect key="frame" x="0.0" y="24" width="200" height="58"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXD-8y-R8y">
-                                        <rect key="frame" x="26" y="90" width="148" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="New Game">
-                                            <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="restart:" destination="LVB-YS-i5n" eventType="touchUpInside" id="pXz-gI-aqA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYR-fV-lVv">
-                                        <rect key="frame" x="26" y="128" width="148" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Keep Playing">
-                                            <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="keepPlaying:" destination="LVB-YS-i5n" eventType="touchUpInside" id="8Fp-e5-XbF"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="keepPlaying" destination="gYR-fV-lVv" id="2Mz-ck-pAi"/>
-                                    <outlet property="message" destination="Pqq-SU-fYe" id="p9M-RG-iYY"/>
-                                    <outlet property="restartGame" destination="qXD-8y-R8y" id="K7b-ex-bao"/>
-                                </connections>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSt-5b-bvD">
-                                <rect key="frame" x="231" y="106" width="74" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Restart">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="restart:" destination="LVB-YS-i5n" eventType="touchUpInside" id="7GG-9o-hST"/>
+                                    <action selector="abortButtonPressed:" destination="LVB-YS-i5n" eventType="touchUpInside" id="eK5-on-K3k"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7bR-CK-ht0" secondAttribute="trailing" id="XQK-Ao-Gw7"/>
-                            <constraint firstItem="7bR-CK-ht0" firstAttribute="top" secondItem="bdc-N1-crn" secondAttribute="top" id="Yjw-hH-Qj2"/>
-                            <constraint firstAttribute="bottom" secondItem="7bR-CK-ht0" secondAttribute="bottom" id="Ysg-Ye-xrC"/>
-                            <constraint firstItem="7bR-CK-ht0" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="dkE-7i-2C5"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="_bestView" destination="OSi-g6-ogB" id="Y4U-P0-y17"/>
-                        <outlet property="_multiplayerButton" destination="qlp-9p-Egv" id="T8E-nQ-fcK"/>
-                        <outlet property="_overlay" destination="4yN-A6-bWQ" id="nWX-bx-L22"/>
-                        <outlet property="_overlayBackground" destination="7bR-CK-ht0" id="b5h-IP-Aah"/>
-                        <outlet property="_restartButton" destination="WSt-5b-bvD" id="N52-nz-hF7"/>
                         <outlet property="_scoreView" destination="MHo-Xg-Gu9" id="oPU-4e-SgG"/>
-                        <outlet property="_settingsButton" destination="8r1-lH-tEE" id="UN6-bn-dHf"/>
                         <outlet property="_subtitle" destination="r98-Zq-3Of" id="s6F-Zh-xnD"/>
                         <outlet property="_targetScore" destination="C71-5n-Bsx" id="aJX-Jq-2Dq"/>
                     </connections>
