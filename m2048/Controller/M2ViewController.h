@@ -11,10 +11,14 @@
 
 #import <Skillz/Skillz.h>
 
-@interface M2ViewController : UIViewController <SkillzBaseDelegate>
+@interface M2ViewController : UIViewController <SkillzBaseDelegate> {
+    int matchLength;
+    IBOutlet UILabel *seconds;
+    NSTimer *timer;
+}
 
 - (void)updateScore:(NSInteger)score;
 
-- (void)endGame:(BOOL)won;
+- (void)endGame;
 
 @end

@@ -14,16 +14,23 @@
 #import "M2ScoreView.h"
 #import "M2GridView.h"
 
+#import "M2Grid.h"
+#import "M2Tile.h"
+#import "M2Scene.h"
+
 #import <Skillz/Skillz.h>
 
+
+
 @implementation M2ViewController {
-  IBOutlet UIButton *_abortButton;
   IBOutlet UILabel *_targetScore;
   IBOutlet UILabel *_subtitle;
   IBOutlet M2ScoreView *_scoreView;
   IBOutlet M2ScoreView *_bestView;
-  
-  M2Scene *_scene;
+
+    M2Grid *_grid;
+ 
+    M2Scene *_scene;
 }
 
 - (void)viewDidLoad
@@ -49,14 +56,26 @@
     
     _scene = scene;
     _scene.controller = self;
-  
- }
+    
+}
+
+- (void)countDown {
+
+    matchLength -=1;
+    seconds.text = [NSString stringWithFormat:@"%i", matchLength];
+    if (matchLength == 0) {
+        NSLog(@"time ran out");
+        [timer invalidate];
+        [self endGame];
+    }
+}
 
 - (void)tournamentWillBegin:(NSDictionary *)gameParameters
               withMatchInfo:(SKZMatchInfo *)matchInfo
 {
     // This code is called when a player starts a game in the Skillz portal.
     NSLog(@"Game Parameters: %@", gameParameters);
+    NSLog(@"match length: %@", gameParameters[@"matchLength"]);
     NSLog(@"Now starting a game… matchInfo: %@", matchInfo);
     
     // INCLUDE CODE HERE TO START YOUR GAME
@@ -75,6 +94,18 @@
     _scene = scene;
     _scene.controller = self;
 
+    
+    // initialize timer
+    matchLength = 60;
+    matchLength = [gameParameters[@"matchLength"] intValue];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1
+                                             target:self
+                                           selector:@selector(countDown)
+                                           userInfo:nil
+                                            repeats:YES];
+    
+
+    
     // END OF CODE TO START GAME
 }
 
@@ -84,6 +115,7 @@
     //back to the normal game.
     NSLog(@"Skillz exited.");
 }
+
 
 - (void)updateState
 {
@@ -156,16 +188,8 @@
 }
 
 
-- (void)endGame:(BOOL)won
+- (void)endGame
 {
- 
-  if (!won) {
-   //    _overlay.message.text = @"Game Over";
-  } else {
-  //     _overlay.message.text = @"You Win!";
-  }
-  
-    
     if ([[Skillz skillzInstance] tournamentIsInProgress]) {
         // The game ended and it was in a Skillz tournament,
         // so report the score and go back to Skillz.
