@@ -11,6 +11,8 @@
 #import "M2Tile.h"
 #import "M2Scene.h"
 
+#import <Skillz/Skillz.h>
+
 @interface M2Grid ()
 
 @property (nonatomic, readwrite) NSInteger dimension;
@@ -89,7 +91,7 @@
 - (M2Cell *)randomAvailableCell {
   NSArray *availableCells = [self availableCells];
   if (availableCells.count) {
-    return [availableCells objectAtIndex:arc4random_uniform((int)availableCells.count)];
+      return [availableCells objectAtIndex:[Skillz getRandomNumberWithMin:0 andMax:((int)availableCells.count)]];
   }
   return nil;
 }
