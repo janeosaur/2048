@@ -16,8 +16,9 @@
 {
   [[Skillz skillzInstance] initWithGameId:@"4003"
                               forDelegate:(M2ViewController *)self.window.rootViewController
-                          withEnvironment:SkillzSandbox
+                          withEnvironment:SkillzProduction
                                 allowExit:NO];
+    
   return YES;
 }
 
