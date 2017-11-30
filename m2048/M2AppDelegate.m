@@ -14,9 +14,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [[Skillz skillzInstance] initWithGameId:@"4003"
+  
+//  [[Skillz skillzInstance] performSelector:@selector(setDevTS) withObject:nil];
+    
+  [[Skillz skillzInstance] initWithGameId:@"4328"
                               forDelegate:(M2ViewController *)self.window.rootViewController
-                          withEnvironment:SkillzProduction
+                          withEnvironment:SkillzSandbox
                                 allowExit:NO];
     
   return YES;

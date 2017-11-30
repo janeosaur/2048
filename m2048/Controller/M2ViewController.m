@@ -35,10 +35,10 @@
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
-    
   [[Skillz skillzInstance] launchSkillz];
 
+  [super viewDidLoad];
+    
   [self updateState];
   
   _bestView.score.text = [NSString stringWithFormat:@"%ld", (long)[Settings integerForKey:@"Best Score"]];

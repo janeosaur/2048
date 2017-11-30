@@ -11,9 +11,8 @@
       "scale" : "3x"
     },
     {
-      "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "adfasd.png",
+      "size" : "29x29",
       "scale" : "2x"
     },
     {
@@ -42,6 +41,12 @@
       "idiom" : "iphone",
       "size" : "60x60",
       "scale" : "3x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "adfasd.png",
+      "scale" : "1x"
     }
   ],
   "info" : {

@@ -34,9 +34,10 @@
 		24C4517018DFF10B0001FCFD /* M2ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C4516F18DFF10B0001FCFD /* M2ScoreView.m */; };
 		24C4517318E140AE0001FCFD /* M2SettingsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C4517218E140AE0001FCFD /* M2SettingsDetailViewController.m */; };
 		24C4518118E265390001FCFD /* M2Overlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C4518018E265390001FCFD /* M2Overlay.m */; };
-		E9FD55CD1F6B58080021D3BA /* Skillz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FD55CC1F6B58080021D3BA /* Skillz.framework */; };
-		E9FD55CE1F6B59400021D3BA /* Skillz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FD55CC1F6B58080021D3BA /* Skillz.framework */; };
-		E9FD55CF1F6B59400021D3BA /* Skillz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9FD55CC1F6B58080021D3BA /* Skillz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9192F2F1FCF7FD30024FECF /* Skillz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9192F2E1FCF7FD30024FECF /* Skillz.framework */; };
+		E9192F301FCF7FDF0024FECF /* Skillz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9192F2E1FCF7FD30024FECF /* Skillz.framework */; };
+		E9192F311FCF7FDF0024FECF /* Skillz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9192F2E1FCF7FD30024FECF /* Skillz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E91BC3D91FCF703700984A3E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91BC3D81FCF703700984A3E /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E9FD55CF1F6B59400021D3BA /* Skillz.framework in Embed Frameworks */,
+				E9192F311FCF7FDF0024FECF /* Skillz.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +110,8 @@
 		24C4517218E140AE0001FCFD /* M2SettingsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2SettingsDetailViewController.m; sourceTree = "<group>"; };
 		24C4517F18E265390001FCFD /* M2Overlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2Overlay.h; sourceTree = "<group>"; };
 		24C4518018E265390001FCFD /* M2Overlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2Overlay.m; sourceTree = "<group>"; };
-		E9FD55CC1F6B58080021D3BA /* Skillz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Skillz.framework; sourceTree = "<group>"; };
+		E9192F2E1FCF7FD30024FECF /* Skillz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Skillz.framework; sourceTree = "<group>"; };
+		E91BC3D81FCF703700984A3E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,11 +120,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2443DC5818D662CA00C920C1 /* CoreGraphics.framework in Frameworks */,
+				E91BC3D91FCF703700984A3E /* StoreKit.framework in Frameworks */,
 				2443DC5A18D662CA00C920C1 /* UIKit.framework in Frameworks */,
+				E9192F2F1FCF7FD30024FECF /* Skillz.framework in Frameworks */,
 				2443DC5C18D662CA00C920C1 /* SpriteKit.framework in Frameworks */,
 				2443DC5618D662CA00C920C1 /* Foundation.framework in Frameworks */,
-				E9FD55CD1F6B58080021D3BA /* Skillz.framework in Frameworks */,
-				E9FD55CE1F6B59400021D3BA /* Skillz.framework in Frameworks */,
+				E9192F301FCF7FDF0024FECF /* Skillz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,8 +164,9 @@
 		2443DC5418D662CA00C920C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9192F2E1FCF7FD30024FECF /* Skillz.framework */,
+				E91BC3D81FCF703700984A3E /* StoreKit.framework */,
 				2443DC5518D662CA00C920C1 /* Foundation.framework */,
-				E9FD55CC1F6B58080021D3BA /* Skillz.framework */,
 				2443DC5718D662CA00C920C1 /* CoreGraphics.framework */,
 				2443DC5918D662CA00C920C1 /* UIKit.framework */,
 				2443DC5B18D662CA00C920C1 /* SpriteKit.framework */,
@@ -339,6 +343,12 @@
 				TargetAttributes = {
 					2443DC5118D662CA00C920C1 = {
 						DevelopmentTeam = DF8VM75V3Q;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					2443DC7918D662CA00C920C1 = {
 						TestTargetID = 2443DC5118D662CA00C920C1;
@@ -559,6 +569,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = DF8VM75V3Q;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -568,6 +580,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "m2048/m2048-Prefix.pch";
 				INFOPLIST_FILE = "m2048/m2048-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -578,8 +591,10 @@
 					"-weak_framework",
 					PassKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.danqing.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.S2048.VCOnly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "862d06dc-3bdf-4577-bb1b-012a281e7ecb";
+				PROVISIONING_PROFILE_SPECIFIER = "2048 VC Only Dev";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -591,6 +606,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = DF8VM75V3Q;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -600,6 +617,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "m2048/m2048-Prefix.pch";
 				INFOPLIST_FILE = "m2048/m2048-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -610,8 +628,10 @@
 					"-weak_framework",
 					PassKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.danqing.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.S2048.VCOnly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "862d06dc-3bdf-4577-bb1b-012a281e7ecb";
+				PROVISIONING_PROFILE_SPECIFIER = "2048 VC Only Dev";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
